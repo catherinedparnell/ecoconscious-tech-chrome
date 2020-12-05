@@ -1,8 +1,14 @@
 body{
-    background-color: goldenrod;
+    background-color: white;
+    min-width: 250px;
 }
 
-h1{
-    color: lightyellow;
-    font-family: 'Poiret One', cursive;
+h1 {
+    color: purple;
+    font-family: Arial;
+    text-align: center;
+}
+
+p {
+    text-align: center;
 }
