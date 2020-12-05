@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+    "name": "Chrome Extension for HackDuke",
+    "description": "This extension shows you whether or not the website you are on is green",
+    "version": "1.0",
+    "content_scripts": [
+        {
+        "matches": ["https://www.google.com/*"],
+        "css": ["main.css"]
+        }
+    ],
+    "page_action": {
+        "default_title": "HackDuke",  
+        "default_popup": "popup.html"        
+    }
+}
