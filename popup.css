@@ -29,11 +29,16 @@ h1 {
     z-index: -1;
     width: 330px;
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .image-section{
     width: 330px;
     height: 180px;
+    margin-top: -50px;
 }
  
 
@@ -82,7 +87,7 @@ p {
     margin-left: 5px;
     margin-right: 13px;
     margin-bottom: 20px;
-    
+    margin-top: 40px;
     color: #000000;
 }
 
