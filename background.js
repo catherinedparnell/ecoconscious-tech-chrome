@@ -14,11 +14,11 @@ var db = firebase.firestore();
 
 chrome.tabs.onActivated.addListener((activeInfo) => {
     chrome.tabs.get(activeInfo.tabId, function (tab) {
-        console.log(tab.url);
+        console.log("tab url", tab.url);
         var tabUrl = new URL(tab.url);
         var shorterUrl = tabUrl.origin;
         var strippedUrl = shorterUrl.replace(/(^\w+:|^)\/\//, '');
-        console.log(strippedUrl);
+        console.log("stripped", strippedUrl);
         const API = `http://api.thegreenwebfoundation.org/greencheck/${strippedUrl}`;
         var greenCheck;
         var url;
@@ -31,10 +31,11 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
         }).then(response => {
             console.log(response);
             response.json().then((data) => {
-                console.log(data);
+                console.log("data", data);
                 greenCheck = data.green;
                 url = data.url;
-                console.log(greenCheck)
+                console.log("check", greenCheck)
+                // need to figure out what to do if greencheck returns undefined bc then it calls firebase error w invalid data
                 if (greenCheck == true) {
                     console.log("GreenCheck: ", greenCheck);
                     chrome.browserAction.setIcon({path:'images/green.png', tabId: activeInfo.tabId}); 
