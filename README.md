@@ -5,8 +5,7 @@ A Chrome extension built to keep us internet users mindful of our environmental 
 ## Features
 
 * Using the [Green Web Foundation's API](https://www.thegreenwebfoundation.org/green-web-datasets/), users can see what sites they visit use entirely green, renewable energy indicated by the color of the icon in the toolbar.
-* Tracks the time that users spend active on the web and calculates resulting carbon emissions from those activities.
-* When authenticated with Google, can be used in conjunction with the *name of this project* landing page (link goes here) to keep up with your your daily and all-time stats.
+* When authenticated with Google, can be used in conjunction with the EcoConscious Tech landing page (link goes here) to keep up with your your daily and all-time stats.
 
 ## Calculations
 Calculations for carbon emissions goes here
