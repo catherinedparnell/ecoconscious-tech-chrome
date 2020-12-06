@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="popup.css" />
 <link href='https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&family=Poiret+One&family=Spectral:wght@400;600&display=swap' rel='stylesheet'    type='text/css' />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
 <head>
     <script src="popup.js"></script>
 </head>
 <html>
     <body>
-        <h1>{OUR THING'S NAME GOES HERE}</h1>
-        <h2>Key:</h2>
-        <p>Green: the website is run on entirely green, renewable energy</p>
-        <p>Red: means the website is not run on entirely green, renewable energy</p>
-        <p>Grey: there is no data available whether the website runs on entirely green, renewable energy</p>
+        <div class="shadow-box"><h1>Green Web Checker</h1></div>
+        <div class="background" id="green">
+            <h2>If the site is<div class="bold">green,</div></h2>
+        </div>
+        <p>it is hosted on renewable energy.</p>
+        <div class="background" id="not-green">
+            <h2 id="no">If the site is<div class="bold"> not green,</div></h2>
+        </div>
+        <p>it is not hosted on renewable energy or the data is not available.</p>
     </body>
 </html>
