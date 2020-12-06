@@ -13,32 +13,11 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 let user = {};
 
-// where does this go
-chrome.identity.getAuthToken({ interactive: true }, function(token) {
-        if (chrome.runtime.lastError) {
-            alert(chrome.runtime.lastError.message);
-            return;
-        }
-        var credential = firebase.auth.GoogleAuthProvider.credential(null, token);
-        firebase.auth().signInWithCredential(credential);
-
-        fetch ('https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=' + token)
-        .then(function(response) {
-            return response.json();
-          })
-          .then(function(jsonResponse) {
-            console.log(jsonResponse);
-            user = jsonResponse;
-          });
-    });
-
 chrome.tabs.onActivated.addListener((activeInfo) => {
     chrome.tabs.get(activeInfo.tabId, function (tab) {
-        console.log("tab url", tab.url);
         var tabUrl = new URL(tab.url);
         var shorterUrl = tabUrl.origin;
         var strippedUrl = shorterUrl.replace(/(^\w+:|^)\/\//, '');
-        console.log("stripped", strippedUrl);
         const API = `http://api.thegreenwebfoundation.org/greencheck/${strippedUrl}`;
         var greenCheck;
         var url;
@@ -49,19 +28,17 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
                 'Accept': 'application/json'
             }
         }).then(response => {
-            console.log(response);
             response.json().then((data) => {
-                console.log("data", data);
                 greenCheck = data.green;
                 url = data.url;
-                console.log("check", greenCheck)
+                console.log("green check", greenCheck)
                 // need to figure out what to do if greencheck returns undefined bc then it calls firebase error w invalid data
                 if (greenCheck == true) {
-                    console.log("GreenCheck: ", greenCheck);
-                    chrome.browserAction.setIcon({path:'images/green.png', tabId: activeInfo.tabId}); 
+                    chrome.browserAction.setIcon({path:'images/green-logo.png', tabId: activeInfo.tabId}); 
                 } else if (greenCheck == false) {
-                    console.log("GreenCheck: ", greenCheck);
-                    chrome.browserAction.setIcon({path:'images/red.png', tabId: activeInfo.tabId}); 
+                    chrome.browserAction.setIcon({path:'images/purple-logo.png', tabId: activeInfo.tabId}); 
+                } else {
+                    greenCheck = null;
                 }
                 // this would be a username from authentication if authenticated
                 if (user !== {}) {
@@ -88,6 +65,7 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
     });
 });
 
-chrome.tabs.onCreated.addListener((tab) => {
+/* chrome.tabs.onCreated.addListener((tab) => {
+    console.log(performance.now());
     chrome.storage.local.set({[tab.tabId]: performance.now()});
-});
+}); */

@@ -9,7 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
 
 <head>
-    <script src="popup.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+    <script src="oauth.js"></script>
 </head>
 <html>
 
@@ -17,10 +23,11 @@
     <div class="image-section">
         <div class="image-background">
             <div class="shadow-box">
-                <h1>Green Web Checker</h1>
+                <h1>EcoConscious Tech</h1>
             </div>
         </div>
     </div>
+    <div id="user-email"></div>
     <div class="background" id="green">
         <h2>If the site is <span class="bold">green,</span>
         </h2>
@@ -31,6 +38,7 @@
         </h2>
     </div>
     <p>it is not hosted on renewable energy or the data is not available.</p>
+    <div class="sign-in"><button id="button">Sign In</button></div>
 </body>
 
 </html>

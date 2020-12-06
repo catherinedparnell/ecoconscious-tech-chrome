@@ -5,18 +5,20 @@
     "description": "This extension shows you whether or not the website you are on is green",
     "version": "1.0",
     "background": {
-        "page": "background.html"
+        "page": "background.html",
+        "persistent": true
     },
     "content_scripts": [
         {
             "matches": ["http://*/*", "https://*/*"],
             "css": ["main.css"],
-            "js": ["main.js"]
+            "js": ["oauth.js"]
         }
     ],
     "browser_action": {
-        "default_title": "My personalized google page!",
-        "default_popup": "popup.html"
+        "default_title": "EcoConscious Tech!",
+        "default_popup": "popup.html",
+        "default_icon": "images/purple-logo.png"
     },
     "permissions": [
         "tabs",

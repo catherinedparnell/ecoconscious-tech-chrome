@@ -91,3 +91,28 @@ p {
     color: #000000;
 }
 
+#user-email {
+    font-family: Libre Franklin;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+    text-align: center;
+}
+
+.sign-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#button {
+    border: 6px solid black;
+    background-color: #00FF19; /* Green */
+    color: black;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Libre Franklin;
+    font-size: 18px;
+}
