@@ -1,4 +1,4 @@
-# chrome-ext-duke
+# Welcome to EcoConscious Tech's Chrome Extension
 
 A Chrome extension built to keep us internet users mindful of our environmental impact.
 
