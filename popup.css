@@ -21,6 +21,20 @@ h1 {
     color: #000000;
     padding: 20px;
 }
+
+.image-background{
+    background-image: url('images/background.svg');
+    height: 200px;
+    position: fixed;
+    z-index: -1;
+    width: 330px;
+    margin-bottom: 30px;
+}
+
+.image-section{
+    width: 330px;
+    height: 180px;
+}
  
 
 h2 {
