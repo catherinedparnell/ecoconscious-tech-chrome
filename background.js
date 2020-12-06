@@ -11,6 +11,26 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
+let user = {};
+
+// where does this go
+chrome.identity.getAuthToken({ interactive: true }, function(token) {
+        if (chrome.runtime.lastError) {
+            alert(chrome.runtime.lastError.message);
+            return;
+        }
+        var credential = firebase.auth.GoogleAuthProvider.credential(null, token);
+        firebase.auth().signInWithCredential(credential);
+
+        fetch ('https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=' + token)
+        .then(function(response) {
+            return response.json();
+          })
+          .then(function(jsonResponse) {
+            console.log(jsonResponse);
+            user = jsonResponse;
+          });
+    });
 
 chrome.tabs.onActivated.addListener((activeInfo) => {
     chrome.tabs.get(activeInfo.tabId, function (tab) {
@@ -44,8 +64,7 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
                     chrome.browserAction.setIcon({path:'images/red.png', tabId: activeInfo.tabId}); 
                 }
                 // this would be a username from authentication if authenticated
-                let user = "user";
-                if (user) {
+                if (user !== {}) {
                     db.collection("website").add({
                         website: strippedUrl,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -54,9 +73,9 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
                     .then(function(docRef) {
                         console.log("Document written in ID: ", docRef.id);
                         // this puts the made website reference in an array of websites attached to the user
-                        db.collection("users").doc(user).update({
+                        db.collection("users").doc(user.email).set({
                             websites: firebase.firestore.FieldValue.arrayUnion(docRef.id)
-                        })
+                        }, { merge: true })
                     })
                     .catch(function(error) {
                         console.error("Error adding document: ", error);
