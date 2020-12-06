@@ -1,13 +1,12 @@
 {
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuxqWpsLP1QglRW0qnxSfIWBScVYGfWgVs3kQ8ueywC7UxIFcigKoGMSIyraQ2tX0xeOsFnasjtTu8FdlKOTEFApAFeypXhRcUqmNgPG7pJX9KkFbQEEKhuvFBQrD+sfhbHuFrLMJ6Xr+q3hvp6fEN0AkMAurS3V1L/kGC7YjgLqy9fI/Zh2BMcAZwWqF59hfniYig1opOA932Fy0El+g27noAyWbZF7m/Jycx9vUsutxnYUEuTs5wNtq7JLJjtfQ89nnrmGSHxptpu3tFUuNsY37XLlV18WbbAeZZeeKndTjOPJCa5h7P5reBeBQUrat3aL1vsuiRj29T1z2Hb7dBwIDAQAB",
     "manifest_version": 2,
     "name": "Chrome Extension for HackDuke",
     "description": "This extension shows you whether or not the website you are on is green",
     "version": "1.0",
     "background": {
         "page": "background.html"
-    }
-        
-    ,
+    },
     "content_scripts": [
         {
             "matches": ["http://*/*", "https://*/*"],
@@ -22,7 +21,12 @@
     "permissions": [
         "tabs",
         "background",
-        "activeTab"
+        "activeTab",
+        "identity"
     ],
+    "oauth2": {
+        "client_id": "919440526614-qjrg8mmqhsqltn15amrnn1o74pfsjvhn.apps.googleusercontent.com",
+        "scopes": ["https://www.googleapis.com/auth/userinfo.email"]
+    },
     "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
 }
