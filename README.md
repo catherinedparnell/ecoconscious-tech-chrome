@@ -9,5 +9,5 @@ A Chrome extension built to keep us internet users mindful of our environmental 
 
 Our Experience at HackDuke
 -------------------------------------------------
-We built this extension as a part of the HackDuke Code for Good Hackathon in the Energy & Environment track. It is part of a broader project, focused on informing and educating developers and internet users alike on the environmental impact of their technological pursuits. Stay tuned for our [website](http://ecoconscioustech.surge.sh) and partnering [VSCode Extension](https://github.com/catherinedparnell/ecoconscious-tech-vsc).
+We built this extension as a part of the HackDuke Code for Good Hackathon in the Energy & Environment track. It is part of a broader project, focused on informing and educating developers and internet users alike on the environmental impact of their technological pursuits. Check out our [website](http://ecoconscioustech.surge.sh) and partnering [VSCode Extension](https://github.com/catherinedparnell/ecoconscious-tech-vsc).
 
