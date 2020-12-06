@@ -69,3 +69,10 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
     console.log(performance.now());
     chrome.storage.local.set({[tab.tabId]: performance.now()});
 }); */
+
+/* chrome.tabs.onCreated.addListener(function(activeInfo) {
+    // how to fetch tab url using activeInfo.tabid
+    chrome.tabs.get(activeInfo.tabId, function(tab){
+       console.log(tab.url);
+    });
+}); */
